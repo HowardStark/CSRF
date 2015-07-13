@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<body>
+        <form name="input" method="POST">
+            <label for="url">Url:</label>
+            <input type="text" name="url" id="url">
+            <label for="valuename">Value Name:</label>
+            <input type="text" name="valuename" id="valuename">
+            <label for="value">Value:</label>
+            <input type="text" name="value" id="value">
+            <button type="button" onclick="setForm()">Submit</button>
+        </form>
+
+		<form name="csrf_form" method="POST">
+			<input type="hidden" id="csrf">
+		</form>
+		
+		<script type="text/javascript">
+            function setForm() {
+                document.csrf_form.action = document.getElementById('url').value;
+                document.getElementById('csrf').setAttribute("name", document.getElementById('valuename').value);
+                document.getElementById('csrf').value = document.getElementById('value').value;
+                document.csrf_form.submit();
+            }
+        </script>
+	</body>
+</html>
